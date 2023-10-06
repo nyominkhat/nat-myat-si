@@ -7,16 +7,22 @@ import {
   TableRow,
   TableCell,
   Card,
+  Text,
 } from "@tremor/react";
+import { useNavigate } from "react-router-dom";
 
 import Pagination from "../components/Pagination";
 import Loading from "../components/Loading";
 
+import useBadinContext from "../context";
 import { useGetQuestions } from "../hooks/questions";
 
 import { questionTypes } from "../types";
 
 const Home = () => {
+  const { setQuestionNo, setQuestionName } = useBadinContext();
+  const navigate = useNavigate();
+
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState<number | undefined>(0);
 
@@ -34,6 +40,12 @@ const Home = () => {
     setCurrentPage(currentPage);
   }, []);
 
+  const navigater = (questionNo: string, questionName: string) => {
+    setQuestionName(questionName);
+    setQuestionNo(questionNo);
+    navigate("/touch");
+  };
+
   if (isLoading) {
     return <Loading />;
   }
@@ -41,25 +53,34 @@ const Home = () => {
   return (
     <section className="container flex items-center justify-center h-full mx-auto">
       <Card className="h-[80vh] flex flex-col justify-between">
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableHeaderCell>No .</TableHeaderCell>
-              <TableHeaderCell>Questions</TableHeaderCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data?.questions.map((item: questionTypes) => (
-              <TableRow
-                key={item.questionNo}
-                className="transition-all cursor-pointer hover:text-slate-100"
-              >
-                <TableCell>{item.questionNo}</TableCell>
-                <TableCell>{item.questionName}</TableCell>
+        <div>
+          <Text className="text-2xl dark:text-slate-200">
+            နတ်မျက်စိ လက်ထောက်ဗေဒင်
+          </Text>
+
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableHeaderCell>No .</TableHeaderCell>
+                <TableHeaderCell>Questions</TableHeaderCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHead>
+            <TableBody>
+              {data?.questions.map((item: questionTypes) => (
+                <TableRow
+                  key={item.questionNo}
+                  className="transition-all cursor-pointer hover:text-slate-100"
+                  onClick={() => {
+                    navigater(item.questionNo + "", item.questionName);
+                  }}
+                >
+                  <TableCell>{item.questionNo}</TableCell>
+                  <TableCell>{item.questionName}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
 
         {/* pagination btns */}
         <Pagination

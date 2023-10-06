@@ -1,5 +1,138 @@
+import { Card, Text } from "@tremor/react";
+import { Button } from "@tremor/react";
+import { useNavigate } from "react-router-dom";
+
+import useBadinContext from "../context";
+
+const numList = [
+  "၃",
+  "၁၀",
+  "၅",
+  "၁၀",
+  "၇",
+  "၂",
+  "၅",
+  "၂",
+  "၇",
+  "၈",
+  "၆",
+  "၄",
+  "၅",
+  "၃",
+  "၁",
+  "၁၀",
+  "၈",
+  "၆",
+  "၇",
+  "၂",
+  "၉",
+  "၄",
+  "၉",
+  "၆",
+  "၉",
+  "၄",
+  "၁",
+  "၈",
+  "၅",
+  "၁၀",
+  "၆",
+  "၃",
+  "၈",
+  "၄",
+  "၁",
+  "၆",
+  "၃",
+  "၁",
+  "၉",
+  "၁",
+  "၉",
+  "၇",
+  "၉",
+  "၇",
+  "၅",
+  "၂",
+  "၇",
+  "၄",
+  "၁၀",
+  "၅",
+  "၂",
+  "၈",
+  "၃",
+  "၁၀",
+  "၇",
+  "၄",
+  "၉",
+  "၂",
+  "၉",
+  "၄",
+  "၉",
+  "၆",
+  "၁",
+  "၂",
+  "၁၀",
+  "၈",
+  "၇",
+  "၅",
+  "၃",
+  "၄",
+  "၂",
+  "၁၀",
+  "၁",
+  "၆",
+  "၃",
+  "၆",
+  "၁",
+  "၈",
+  "၃",
+  "၈",
+  "၅",
+];
+
 const Touch = () => {
-  return <section>Touch</section>;
+  const { setQuestionNo, questionNo, questionName, setPinNo } =
+    useBadinContext();
+
+  const navigate = useNavigate();
+
+  const handlePicker = (pinNo: string) => {
+    if (questionNo === "0") {
+      navigate(-1);
+    }
+
+    setPinNo(pinNo);
+    navigate("/destiny");
+  };
+
+  const back = () => {
+    setQuestionNo("0");
+    navigate(-1);
+  };
+
+  return (
+    <section className="container flex items-center justify-center h-full mx-auto">
+      <Card className="max-w-3xl space-y-5 w-fit h-fit">
+        <div className="flex items-center justify-between ">
+          <Text className="text-lg dark:text-slate-200">{questionName}</Text>
+
+          <Button onClick={back} className="dark:text-white">
+            နောက်သို့
+          </Button>
+        </div>
+
+        <div className="grid grid-cols-9">
+          {numList.map((item, index) => (
+            <Button
+              key={index}
+              onClick={() => handlePicker(item)}
+              className="w-20 h-20 dark:bg-tremor-content-strong dark:text-white"
+            >
+              {item}
+            </Button>
+          ))}
+        </div>
+      </Card>
+    </section>
+  );
 };
 
 export default Touch;

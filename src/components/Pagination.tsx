@@ -14,7 +14,7 @@ const Pagination = ({
   return (
     <ReactPaginate
       className="flex items-center justify-start gap-4 bg-[#111827] select-none py-0"
-      activeClassName="text-[#111827] rounded bg-white"
+      activeClassName="text-black rounded bg-white"
       pageClassName="block h-10 w-10 border cursor-pointer  rounded transition-all text-white"
       nextLabel="Next"
       previousLabel="Prev"
