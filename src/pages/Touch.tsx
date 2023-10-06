@@ -3,6 +3,7 @@ import { Button } from "@tremor/react";
 import { useNavigate } from "react-router-dom";
 
 import useBadinContext from "../context";
+import { myanmarToEnglishNums } from "../libs";
 
 const numList = [
   "၃",
@@ -99,7 +100,7 @@ const Touch = () => {
       navigate(-1);
     }
 
-    setPinNo(pinNo);
+    setPinNo(myanmarToEnglishNums(pinNo));
     navigate("/destiny");
   };
 
