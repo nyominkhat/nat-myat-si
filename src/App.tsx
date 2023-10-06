@@ -10,7 +10,7 @@ function App() {
   const { questionNo, pinNo } = useBadinContext();
 
   return (
-    <div className="w-screen h-screen overflow-hidden">
+    <div className="w-screen h-screen overflow-hidden overflow-y-auto">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

@@ -111,8 +111,8 @@ const Touch = () => {
 
   return (
     <section className="container flex items-center justify-center h-full mx-auto">
-      <Card className="max-w-3xl space-y-5 w-fit h-fit">
-        <div className="flex items-center justify-between ">
+      <Card className="flex flex-col items-center justify-center w-screen h-screen space-y-5 lg:max-w-3xl lg:w-fit lg:h-fit">
+        <div className="flex items-center justify-between w-full">
           <Text className="text-lg dark:text-slate-200">{questionName}</Text>
 
           <Button onClick={back} className="dark:text-white">
@@ -125,7 +125,7 @@ const Touch = () => {
             <Button
               key={index}
               onClick={() => handlePicker(item)}
-              className="w-20 h-20 dark:bg-tremor-content-strong dark:text-white"
+              className="h-10 lg:h-20 lg:w-20 dark:bg-tremor-content-strong dark:text-white"
             >
               {item}
             </Button>

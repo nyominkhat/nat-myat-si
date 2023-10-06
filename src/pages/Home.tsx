@@ -51,14 +51,14 @@ const Home = () => {
   }
 
   return (
-    <section className="container flex items-center justify-center h-full mx-auto">
-      <Card className="h-[80vh] flex flex-col justify-between">
-        <div>
-          <Text className="text-2xl dark:text-slate-200">
+    <section className="container flex items-center justify-center h-full mx-auto ">
+      <Card className="flex flex-col justify-between lg:h-[90vh] w-screen h-screen space-y-5">
+        <div className="h-[80%] space-y-5">
+          <Text className="mb-5 text-xl lg:text-2xl dark:text-slate-200">
             နတ်မျက်စိ လက်ထောက်ဗေဒင်
           </Text>
 
-          <Table>
+          <Table className="h-full">
             <TableHead>
               <TableRow>
                 <TableHeaderCell>No .</TableHeaderCell>

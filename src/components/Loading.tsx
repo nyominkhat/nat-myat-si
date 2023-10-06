@@ -14,27 +14,29 @@ const Loading = () => {
 
   return (
     <section className="container flex items-center justify-center h-full mx-auto">
-      <Card className="h-[80vh]">
-        <Text className="text-2xl dark:text-slate-200">
-          နတ်မျက်စိ လက်ထောက်ဗေဒင်
-        </Text>
+      <Card className="flex flex-col justify-between  lg:h-[90vh] w-screen h-screen">
+        <div className="h-[80%] space-y-5">
+          <Text className="text-2xl dark:text-slate-200">
+            နတ်မျက်စိ လက်ထောက်ဗေဒင်
+          </Text>
 
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableHeaderCell>No .</TableHeaderCell>
-              <TableHeaderCell>Questions</TableHeaderCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {items.map((item, index) => (
-              <TableRow key={index} className="animate-pulse">
-                <TableCell className="h-14 bg-white/30"></TableCell>
-                <TableCell className="h-14 bg-white/30"></TableCell>
+          <Table className="h-full">
+            <TableHead>
+              <TableRow>
+                <TableHeaderCell>No .</TableHeaderCell>
+                <TableHeaderCell>Questions</TableHeaderCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHead>
+            <TableBody>
+              {items.map((item, index) => (
+                <TableRow key={index} className="animate-pulse">
+                  <TableCell className="h-14 bg-white/30"></TableCell>
+                  <TableCell className="h-14 bg-white/30"></TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </Card>
     </section>
   );
