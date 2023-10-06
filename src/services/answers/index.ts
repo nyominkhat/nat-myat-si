@@ -2,10 +2,12 @@ import axios from "axios";
 
 import { getAnswerTypes } from "../../types";
 
+const API = import.meta.env.VITE_API_URL;
+
 const getAnswer = async ({ questionNo, pinNo }: getAnswerTypes) => {
   try {
     const response = await axios.get(
-      `http://localhost:5555/answers?questionNo=${questionNo}&answerNo=${pinNo}`
+      `${API}/answers?questionNo=${questionNo}&answerNo=${pinNo}`
     );
 
     return response.data;
