@@ -28,7 +28,7 @@ const Loading = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {items.map((item, index) => (
+              {items.map((_, index) => (
                 <TableRow key={index} className="animate-pulse">
                   <TableCell className="h-14 bg-white/30"></TableCell>
                   <TableCell className="h-14 bg-white/30"></TableCell>
