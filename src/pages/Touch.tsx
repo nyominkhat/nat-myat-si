@@ -111,9 +111,11 @@ const Touch = () => {
 
   return (
     <section className="container flex items-center justify-center h-full mx-auto">
-      <Card className="flex flex-col items-center justify-center w-screen h-screen space-y-5 lg:max-w-3xl lg:w-fit lg:h-fit">
+      <Card className="flex flex-col items-center justify-center w-screen h-screen space-y-5 lg:max-w-3xl lg:w-fit lg:h-fit bg-dark-tremor-background">
         <div className="flex items-center justify-between w-full">
-          <Text className="text-lg dark:text-slate-200">{questionName}</Text>
+          <Text className="text-lg dark:text-slate-200 text-slate-200">
+            {questionName}
+          </Text>
 
           <Button onClick={back} className="dark:text-white">
             နောက်သို့
